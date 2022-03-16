@@ -38,7 +38,7 @@ namespace UserRegistrys.Web.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<DeleteUserBack>> DeleteUser([FromServices] DeleteUserHandler handler, DeleteUserCommand deleteUserCommand)
+        public async Task<ActionResult<DeleteUserBack>> DeleteUser([FromServices] DeleteUserHandler handler,[FromQuery] DeleteUserCommand deleteUserCommand)
         {
             var response = await handler.HandleAsync(deleteUserCommand);
             return Ok(response);
